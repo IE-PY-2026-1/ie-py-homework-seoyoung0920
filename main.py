@@ -21,12 +21,12 @@ for i in range(count):
     
     #선수 데이터 리스트에 저장
     player = [name, at_bat, hit, average]
-    players.append([name, at_bat, hit, average])
+    players.append(player)
 
 # 결과 출력
 print("\n=== 선수 기록 ===")
 
-for player in range(len(players)):
+for player in players:
     player = players[i]
     name = player[0]
     at_bat = player[1]
