@@ -73,7 +73,7 @@
     * **해결:** 조건을 높은 값부터 순서대로 비교하도록 수정하여 올바른 등급이 출력되도록 개선함.
      
 ### **📁 증빙 자료:**
-  * [2차_AI협업캡처.pdf 첨부 완료] (첨부 후 링크)
+  * [2차_AI협업캡처.pdf 첨부 완료] (https://github.com/IE-PY-2026-1/ie-py-homework-seoyoung0920/blob/main/AI%20%ED%98%91%EC%97%85%20%EC%A6%9D%EA%B1%B0(2%EC%B0%A8).pdf)
   * [2차과제_실행결과.jpg]
 <br>
 
