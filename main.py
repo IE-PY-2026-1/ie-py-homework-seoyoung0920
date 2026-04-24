@@ -27,12 +27,8 @@ for i in range(count):
 print("\n=== 선수 기록 ===")
 
 for player in players:
-    player = players[i]
-    name = player[0]
-    at_bat = player[1]
-    hit = player[2]
-    average = player[3]
-    
+    name, at_bat, hit, average = player
+
     # 등급 판정 (높은 기준부터)
     if average >= 0.300:
         grade = "S"
