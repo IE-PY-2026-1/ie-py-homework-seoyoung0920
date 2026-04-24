@@ -44,7 +44,8 @@ for player in players:
         grade ="F"
 
     if average >= 0.300 and hit >= 20:
-        title = "우수 타자"
+        bonus = average * bonus_rate
+        title = f"우수 타자 (+보너스 타율 {bonus:.3f})"
     elif average < 0.150 or at_bat < 5:
         title = "훈련 필요"
     else:
@@ -55,3 +56,6 @@ for player in players:
     print(f"타율: {average:.3f}")
     print(f"등급: {grade}")
     print(f"칭호: {title}")
+
+team_avg = total_avg / len(players)
+print(f"\n 팀 평균 타율: {team_avg:.3f}")
