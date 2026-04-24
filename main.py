@@ -20,6 +20,7 @@ for i in range(count):
         average = hit / at_bat
     
     #선수 데이터 리스트에 저장
+    player = [name, at_bat, hit, average]
     players.append([name, at_bat, hit, average])
 
 # 결과 출력
