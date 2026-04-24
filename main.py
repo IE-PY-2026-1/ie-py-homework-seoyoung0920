@@ -45,7 +45,7 @@ for player in players:
 
     if average >= 0.300 and hit >= 20:
         title = "우수 타자"
-    elif average < 150 or at_bat < 5:
+    elif average < 0.150 or at_bat < 5:
         title = "훈련 필요"
     else:
         title = "일반 선수"
