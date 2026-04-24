@@ -50,7 +50,7 @@ for player in players:
         title = "훈련 필요"
     else:
         title = "일반 선수"
-
+        
     print(f"\n이름: {name}")
     print(f"타수: {at_bat}, 안타: {hit}")
     print(f"타율: {average:.3f}")
