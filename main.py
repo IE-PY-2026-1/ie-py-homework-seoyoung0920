@@ -2,60 +2,106 @@
 # 작 성 자 :
 players = []
 
-team_name = input("팀 이름을 입력하세요: ")
-bonus_rate = 0.1
-
-count = int(input("등록할 선수 수를 입력하세요 (최소 3명): "))
-
-for i in range(count):
-    print(f"\n{i+1}번째 선수 입력")
+def calc_grade(average):
+    if average >= 0.300:
+        return "A" 
+    elif average >= 0.250:
+        return "A"
+    elif average >= 0.200:
+        return "B"
+    elif average >= 0.150:
+        return "C"
+    else:
+        return "F"
     
+def add_players():
+
+    global players
+    print("\n[선수 등록]")
+
     name = input("선수 이름: ")
     at_bat = int(input("타수: "))
     hit = int(input("안타: "))
 
     if at_bat == 0:
-        average = 0.0
+        average = 0
     else:
         average = hit / at_bat
 
-    players.append([name, at_bat, hit, average])
+    players.append([name, at_bat,hit, average])
+    print("선수 등록 완료!")
 
-players.sort(key=lambda x: x[3], reverse=True)
+def show_players():
+    if len(players) == 0:
+        print("\n등록된 선수가 없습니다.")
+        return
+    print("\n=====선수 기록=====")
 
-total_avg = 0
+    for player in players:
+        name = player[0]
+        at_bat = player[1]
+        hit =player[2]
+        average = player[3]
 
-print(f"\n {team_name} 선수 기록")
+        grade = calc_grade(average)
 
-for player in players:
-    name, at_bat, hit, average = player
+        print(f"\n선수 이름: {name}")
+        print(f"타수: {at_bat}")
+        print(f"안타: {hit}")
+        print(f"타율: {average:.3f}")
+        print(f"등급: {grade}")
 
-    total_avg += average
+def best_player():
+    if len(players) == 0:
+        print("\n등록된 선수가 없습니다.")
+        return
+    
+    best = max(players, key=lambda x:x[3])
+    print("🏆최고 타율 선수")
 
-    if average >= 0.300:
-        grade = "S"
-    elif average >= 0.250:
-        grade = "A"
-    elif average >= 0.200:
-        grade = "B"
-    elif average >= 0.150:
-        grade = "C"
+    print(f"선수 이름: {best[0]}")
+    print(f"타율: {best[3]:.3f}")
+
+def team_average():
+    if len(players) == 0:
+        print("\n등록된 선수가 없습니다.")
+        return
+    
+    total = 0
+
+    for player in players:
+        total += player[3]
+
+    avg = total / len(players)
+
+    print(f"📊팀 평균 타율: {avg:.3f}")
+
+while True:
+
+    print("\n===== ⚾ 야구 선수 기록 관리 시스템 =====")
+    print("1. 선수 등록")
+    print("2. 선수 전체 조회")
+    print("3. 최고 타율 선수 분석")
+    print("팀 평균 타율 보기")
+    print("프로그램 종료")
+
+    menu = input("메뉴 선택: ")
+
+    if menu == "1":
+        add_players()
+
+    elif menu == "2":
+        show_players()
+
+    elif menu == "3":
+        best_player()
+    
+    elif menu =="4":
+        team_average()
+
+    elif menu == "5":
+        print("프로그램을 종료합니다.")
+        break
+
     else:
-        grade ="F"
-
-    if average >= 0.300 and hit >= 20:
-        bonus = average * bonus_rate
-        title = f"우수 타자 (+보너스 타율 {bonus:.3f})"
-    elif average < 0.150 or at_bat < 5:
-        title = "훈련 필요"
-    else:
-        title = "일반 선수"
-        
-    print(f"\n이름: {name}")
-    print(f"타수: {at_bat}, 안타: {hit}")
-    print(f"타율: {average:.3f}")
-    print(f"등급: {grade}")
-    print(f"칭호: {title}")
-
-team_avg = total_avg / len(players)
-print(f"\n 팀 평균 타율: {team_avg:.3f}")
+        print("잘못된 메뉴입니다.")
