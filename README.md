@@ -93,7 +93,7 @@
      
 ### **📁 증빙 자료:**
   * [3차_AI협업캡처.pdf 첨부 완료] (https://github.com/IE-PY-2026-1/ie-py-homework-seoyoung0920/blob/main/AI%20%ED%98%91%EC%97%85%20%EC%A6%9D%EA%B1%B0(3%EC%B0%A8).pdf)
-  * [3차과제_실행결과.jpg]
+  * [3차과제_실행결과.jpg] (https://github.com/IE-PY-2026-1/ie-py-homework-seoyoung0920/blob/main/3%EC%B0%A8%20%EA%B3%BC%EC%A0%9C%20%EC%8B%A4%ED%96%89%20%EA%B2%B0%EA%B3%BC.jpg)
 <br>
 
 ### 🟥 [4차 과제: V4.0] 모듈화 및 데이터 확장 (배열과 함수) - 🌟최종 완성 -- 향후 작성 예정
