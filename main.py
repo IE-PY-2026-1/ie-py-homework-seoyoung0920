@@ -4,7 +4,7 @@ players = []
 
 def calc_grade(average):
     if average >= 0.300:
-        return "A" 
+        return "S" 
     elif average >= 0.250:
         return "A"
     elif average >= 0.200:
@@ -28,7 +28,7 @@ def add_players():
     else:
         average = hit / at_bat
 
-    players.append([name, at_bat,hit, average])
+    players.append([name, at_bat, hit, average])
     print("선수 등록 완료!")
 
 def show_players():
@@ -82,8 +82,8 @@ while True:
     print("1. 선수 등록")
     print("2. 선수 전체 조회")
     print("3. 최고 타율 선수 분석")
-    print("팀 평균 타율 보기")
-    print("프로그램 종료")
+    print("4. 팀 평균 타율 보기")
+    print("5. 프로그램 종료")
 
     menu = input("메뉴 선택: ")
 
