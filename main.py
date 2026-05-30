@@ -55,11 +55,8 @@ def show_players():
 
         grade = calc_grade(player[3])
 
-        print(f"\n선수 이름: {labels[0]}")
-        print(f"타수: {labels[1]}")
-        print(f"안타: {labels[2]}")
-        print(f"타율: {labels[3]}")
         print(f"등급: {grade}")
+        print("================")
 
 def best_player():
 
@@ -93,7 +90,7 @@ def save_file():
         with open("players.txt", "w",encoding="utf-8") as file:
             for player in players:
                 file.write(
-                    f"{player[0]}, {player[2]}, {player[3]:.3f}\n"
+                    f"{player[0]}, {player[1]}, {player[2]}, {player[3]:.3f}\n"
                 )
         print("파일 저장 완료!")
     except FileNotFoundError:
