@@ -20,9 +20,14 @@ def add_players():
     print("\n[선수 등록]")
 
     name = input("선수 이름: ")
-    at_bat = int(input("타수: "))
-    hit = int(input("안타: "))
 
+    try:
+        at_bat = int(input("타수: "))
+        hit = int(input("안타: "))
+    except ValueError:
+        print("숫자만 입력하세요.")
+        return
+    
     if at_bat == 0:
         average = 0
     else:
@@ -37,21 +42,27 @@ def show_players():
         return
     print("\n=====선수 기록=====")
 
+    labels = ["선수 이름", "타수", "안타", "타율"]
+
     for player in players:
-        name = player[0]
-        at_bat = player[1]
-        hit =player[2]
-        average = player[3]
+        for i in range(4):
 
-        grade = calc_grade(average)
+            if i == 3:
+                print(f"{labels[i]}: {player[i]:.3f}")
 
-        print(f"\n선수 이름: {name}")
-        print(f"타수: {at_bat}")
-        print(f"안타: {hit}")
-        print(f"타율: {average:.3f}")
+            else:
+                print(f"{labels[i]}: {player[i]}")
+
+        grade = calc_grade(player[3])
+
+        print(f"\n선수 이름: {labels[0]}")
+        print(f"타수: {labels[1]}")
+        print(f"안타: {labels[2]}")
+        print(f"타율: {labels[3]}")
         print(f"등급: {grade}")
 
 def best_player():
+
     if len(players) == 0:
         print("\n등록된 선수가 없습니다.")
         return
@@ -76,6 +87,18 @@ def team_average():
 
     print(f"📊팀 평균 타율: {avg:.3f}")
 
+def save_file():
+
+    try:
+        with open("players.txt", "w",encoding="utf-8") as file:
+            for player in players:
+                file.write(
+                    f"{player[0]}, {player[2]}, {player[3]:.3f}\n"
+                )
+        print("파일 저장 완료!")
+    except FileNotFoundError:
+        print("파일 오류가 발생했습니다.")
+
 while True:
 
     print("\n===== ⚾ 야구 선수 기록 관리 시스템 =====")
@@ -83,7 +106,8 @@ while True:
     print("2. 선수 전체 조회")
     print("3. 최고 타율 선수 분석")
     print("4. 팀 평균 타율 보기")
-    print("5. 프로그램 종료")
+    print("5. 파일 저장")
+    print("6. 프로그램 종료")
 
     menu = input("메뉴 선택: ")
 
@@ -100,8 +124,11 @@ while True:
         team_average()
 
     elif menu == "5":
+        save_file()
+
+    elif menu == "6":
         print("프로그램을 종료합니다.")
         break
 
     else:
-        print("잘못된 메뉴입니다.")
+        print("올바른 메뉴 번호를 입력하세요.")
